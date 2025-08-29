@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="#1C1C1C"
+    android:padding="16dp">
+
+    <!-- Avatar -->
+    <ImageView
+        android:id="@+id/imgAvatar"
+        android:layout_width="188dp"
+        android:layout_height="196dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="Avatar"
+        android:src="@drawable/ic_person" />
+
+    <!-- Nickname -->
+    <TextView
+        android:id="@+id/txtNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nickname"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp" />
+
+    <!-- Botones -->
+    <Button
+        android:id="@+id/btnCrearSala"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Crear Sala"
+        android:backgroundTint="#FFA559"
+        android:layout_marginTop="30dp" />
+
+    <Button
+        android:id="@+id/btnUnirse"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Unirse"
+        android:backgroundTint="#FFA559"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/btnMisSalas"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Mis Salas"
+        android:backgroundTint="#FFA559"
+        android:layout_marginTop="10dp" />
+
+</LinearLayout>

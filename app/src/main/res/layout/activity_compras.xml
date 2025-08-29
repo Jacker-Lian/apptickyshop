@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1C1C1C">
+
+    <!-- Contenido arriba -->
+
+    <!-- Bottom Navigation -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Título -->
+            <TextView
+                android:id="@+id/txtListaCompras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:text="Lista de Compras"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <!-- Persona 1 -->
+            <TextView
+                android:id="@+id/txtPersona1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFA559"
+                android:padding="5dp"
+                android:text="Persona 1 - Nombre"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/accesorio1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Accesorio 1"
+                android:textColor="#FFFFFF" />
+
+            <CheckBox
+                android:id="@+id/accesorio2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Accesorio 2"
+                android:textColor="#FFFFFF" />
+
+            <CheckBox
+                android:id="@+id/accesorio3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Accesorio 3"
+                android:textColor="#FFFFFF" />
+
+            <!-- Persona 2 -->
+            <TextView
+                android:id="@+id/txtPersona2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#FFA559"
+                android:padding="5dp"
+                android:text="Persona 2 - Nombre"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <!-- Persona 3 -->
+            <TextView
+                android:id="@+id/txtPersona3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#FFA559"
+                android:padding="5dp"
+                android:text="Persona 3 - Nombre"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFA559"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:menu="@menu/bottom_nav_menu" />
+
+</LinearLayout>
