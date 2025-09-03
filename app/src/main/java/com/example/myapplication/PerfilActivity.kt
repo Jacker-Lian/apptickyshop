@@ -1,29 +1,46 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 class PerfilActivity : AppCompatActivity() {
 
-    private lateinit var btnEditar: Button
-    private lateinit var btnCerrarSesion: Button
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_perfil)
+        setContentView(R.layout.activity_perfil) // Asegúrate que el nombre coincide
 
-        btnEditar = findViewById(R.id.btnEditar)
-        btnCerrarSesion = findViewById(R.id.btnCerrarSesion)
+        val btnCrearSala = findViewById<Button>(R.id.btnCrearSala)
+        val btnUnirse = findViewById<Button>(R.id.btnUnirse)
+        val btnMisSalas = findViewById<Button>(R.id.btnMisSalas)
+        val btnCerrarSesion = findViewById<ImageView>(R.id.btnCerrarSesion)
+        val btnEditar = findViewById<ImageView>(R.id.btnEditar)
 
-        btnEditar.setOnClickListener {
-            Toast.makeText(this, "Editar perfil en construcción...", Toast.LENGTH_SHORT).show()
+        btnCrearSala.setOnClickListener {
+            // Navegar a CrearSalaActivity
+            startActivity(Intent(this, CrearSalaActivity::class.java))
+        }
+
+        btnUnirse.setOnClickListener {
+            // Navegar a UnirseSalaActivity
+            startActivity(Intent(this, UnirseSalaActivity::class.java))
+        }
+
+        btnMisSalas.setOnClickListener {
+            // Aquí puedes abrir la pantalla de Mis Salas o mostrar mensaje
+            Toast.makeText(this, "Función Mis Salas en construcción", Toast.LENGTH_SHORT).show()
         }
 
         btnCerrarSesion.setOnClickListener {
             Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show()
-            finish() // Cierra esta pantalla
+            finish() // Cierra la actividad actual
+        }
+
+        btnEditar.setOnClickListener {
+            Toast.makeText(this, "Función editar perfil en construcción", Toast.LENGTH_SHORT).show()
         }
     }
 }
