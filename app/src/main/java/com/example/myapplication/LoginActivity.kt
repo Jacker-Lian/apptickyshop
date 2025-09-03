@@ -7,39 +7,47 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val etUsuario = findViewById<EditText>(R.id.etUsuario)
+        val etEmail = findViewById<EditText>(R.id.etEmail)
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
-        val tvRegistrar = findViewById<TextView>(R.id.tvRegistrar)
+        val tvGoRegister = findViewById<TextView>(R.id.tvGoRegister)
 
+        // Botón ingresar (ahora validando con Room)
         btnLogin.setOnClickListener {
-            val user = etUsuario.text.toString()
-            val pass = etPassword.text.toString()
+            val email = etEmail.text.toString().trim()
+            val password = etPassword.text.toString().trim()
 
-            if (user.isNotEmpty() && pass.isNotEmpty()) {
-                // ✅ Aquí podrías validar con base de datos o login real
-                Toast.makeText(this, "Bienvenido $user", Toast.LENGTH_SHORT).show()
-
-                // Ejemplo: Ir a pantalla principal
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-            } else {
+            if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+            } else {
+                val db = AppDatabase.getDatabase(this)
+                val userDao = db.userDao()
+
+                // Como Room usa corrutinas → lanzamos en un hilo aparte
+                lifecycleScope.launch {
+                    val user = userDao.login(email, password)
+                    if (user != null) {
+                        Toast.makeText(this@LoginActivity, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@LoginActivity, PerfilActivity::class.java))
+                        finish() // Opcional: cerrar pantalla de login
+                    } else {
+                        Toast.makeText(this@LoginActivity, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
 
-        tvRegistrar.setOnClickListener {
-            // ✅ Ir a la pantalla de registro
-            val intent = Intent(this, RegistroActivity::class.java)
-            startActivity(intent)
+        // Ir a registro
+        tvGoRegister.setOnClickListener {
+            startActivity(Intent(this, RegistroActivity::class.java))
         }
     }
 }
-

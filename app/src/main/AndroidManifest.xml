@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
 
-        <!-- Pantalla principal -->
+        <!-- Login es la primera pantalla -->
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,16 +22,18 @@
             </intent-filter>
         </activity>
 
-        <!-- Pantalla lista de salas -->
-        <activity
-            android:name=".SalasActivity"
-            android:exported="false" />
-
-        <!-- Pantalla lista de compras -->
-        <activity
-            android:name=".ComprasActivity"
-            android:exported="false" />
+        <!-- Otras pantallas -->
+        <activity android:name=".MainActivity" android:exported="false" />
+        <activity android:name=".PerfilActivity" android:exported="false" />
+        <activity android:name=".RegistroActivity" android:exported="false" />
+        <activity android:name=".CrearSalaActivity" android:exported="false" />
+        <activity android:name=".UnirseSalaActivity" android:exported="false" />
+        <activity android:name=".HistorialActivity" android:exported="false" />
+        <activity android:name=".ListaTareasActivity" android:exported="false" />
+        <activity android:name=".ComprasActivity" android:exported="false" />
+        <activity android:name=".SalasActivity" android:exported="false" />
+        <!-- Si tienes NotasActivity también -->
+        <!-- <activity android:name=".NotasActivity" android:exported="false" /> -->
 
     </application>
-
 </manifest>

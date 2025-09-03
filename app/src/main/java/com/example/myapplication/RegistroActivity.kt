@@ -7,9 +7,10 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 class RegistroActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
@@ -17,29 +18,36 @@ class RegistroActivity : AppCompatActivity() {
         val etNombre = findViewById<EditText>(R.id.etNombre)
         val etEmail = findViewById<EditText>(R.id.etEmail)
         val etPassword = findViewById<EditText>(R.id.etPassword)
-        val btnRegistrar = findViewById<Button>(R.id.btnRegistrar)
-        val tvLogin = findViewById<TextView>(R.id.tvLogin)
+        val btnRegister = findViewById<Button>(R.id.btnRegister)
+        val tvGoLogin = findViewById<TextView>(R.id.tvGoLogin)
 
-        btnRegistrar.setOnClickListener {
-            val nombre = etNombre.text.toString()
-            val email = etEmail.text.toString()
-            val pass = etPassword.text.toString()
+        // Botón registrarse (guardar en Room)
+        btnRegister.setOnClickListener {
+            val nombre = etNombre.text.toString().trim()
+            val email = etEmail.text.toString().trim()
+            val password = etPassword.text.toString().trim()
 
-            if (nombre.isNotEmpty() && email.isNotEmpty() && pass.isNotEmpty()) {
-                Toast.makeText(this, "Usuario $nombre registrado", Toast.LENGTH_SHORT).show()
-
-                // Ejemplo: ir al login después de registrar
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-            } else {
+            if (nombre.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+            } else {
+                val db = AppDatabase.getDatabase(this)
+                val userDao = db.userDao()
+
+                lifecycleScope.launch {
+                    // Guardamos en la BD
+                    userDao.insert(User(nombre = nombre, email = email, password = password))
+                    Toast.makeText(this@RegistroActivity, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show()
+
+                    // Volver al login
+                    startActivity(Intent(this@RegistroActivity, LoginActivity::class.java))
+                    finish()
+                }
             }
         }
 
-        tvLogin.setOnClickListener {
-            // Ir al login si ya tiene cuenta
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+        // Ir a login
+        tvGoLogin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 }
