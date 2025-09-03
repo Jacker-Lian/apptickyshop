@@ -7,8 +7,28 @@
     android:background="#1C1C1C">
 
     <!-- Contenido arriba -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_icono"
+        android:background="@drawable/bg_radius"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
+    <!-- Botón salir -->
+    <ImageView
+        android:id="@+id/exit"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="-90dp"
+        android:src="@drawable/ic_exit" />
     <!-- Bottom Navigation -->
+
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -40,8 +60,11 @@
                 android:background="#FFA559"
                 android:padding="5dp"
                 android:text="Persona 1 - Nombre"
+
                 android:textColor="#FFFFFF"
                 android:textStyle="bold" />
+
+
 
             <CheckBox
                 android:id="@+id/accesorio1"
@@ -65,6 +88,17 @@
                 android:textColor="#FFFFFF" />
 
             <!-- Persona 2 -->
+            <ImageButton
+                android:id="@+id/btnAgregarAccesorio"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/bg_radius"
+                android:contentDescription="Agregar"
+                android:padding="1dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_agregar" />
+
+
             <TextView
                 android:id="@+id/txtPersona2"
                 android:layout_width="match_parent"
