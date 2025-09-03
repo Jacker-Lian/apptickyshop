@@ -6,7 +6,27 @@
     android:background="#1C1C1C"
     android:padding="16dp">
 
+
     <!-- Encabezado -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="97dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="-0dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/bg_radius"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_icono" />
+
+    <ImageView
+        android:id="@+id/exit"
+        android:layout_width="114dp"
+        android:layout_height="103dp"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="-100dp"
+        android:contentDescription="exit"
+        android:src="@drawable/ic_exit" />
+
     <TextView
         android:id="@+id/txtListaSalas"
         android:layout_width="wrap_content"
@@ -23,7 +43,7 @@
         android:id="@+id/sala1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sala 1"
+        android:text="Sala "
         android:backgroundTint="#666666"
         android:textColor="#FFFFFF"
         android:layout_marginBottom="10dp" />
@@ -32,7 +52,7 @@
         android:id="@+id/sala2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sala 2"
+        android:text="Sala "
         android:backgroundTint="#666666"
         android:textColor="#FFFFFF"
         android:layout_marginBottom="10dp" />
@@ -41,7 +61,7 @@
         android:id="@+id/sala3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sala 3"
+        android:text="Sala "
         android:backgroundTint="#666666"
         android:textColor="#FFFFFF"
         android:layout_marginBottom="10dp" />

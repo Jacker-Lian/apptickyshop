@@ -1,6 +1,5 @@
 package com.example.myapplication
 
-import com.example.myapplication.R
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -15,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_perfil)
 
         btnCrearSala = findViewById<Button?>(R.id.btnCrearSala)
         btnUnirse = findViewById<Button?>(R.id.btnUnirse)

@@ -35,18 +35,20 @@ public class ComprasActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.nav_historial:
-                    startActivity(new Intent(this, SalasActivity.class)); // ejemplo
-                    return true;
-                case R.id.nav_compras:
-                    Toast.makeText(this, "Ya estás en Compras", Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.nav_lista:
-                    startActivity(new Intent(this, MainActivity.class)); // ejemplo
-                    return true;
+            int id = item.getItemId();
+
+            if (id == R.id.nav_historial) {
+                startActivity(new Intent(this, SalasActivity.class));
+                return true;
+            } else if (id == R.id.nav_compras) {
+                Toast.makeText(this, "Ya estás en Compras", Toast.LENGTH_SHORT).show();
+                return true;
+            } else if (id == R.id.nav_lista) {
+                startActivity(new Intent(this, MainActivity.class));
+                return true;
             }
             return false;
         });
+
     }
 }

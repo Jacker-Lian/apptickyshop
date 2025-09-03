@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -8,6 +9,25 @@
     android:padding="16dp">
 
     <!-- Avatar -->
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="97dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="-140dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/bg_radius"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_icono" />
+
+    <ImageView
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="114dp"
+        android:layout_height="103dp"
+        android:layout_marginTop="-100dp"
+        android:layout_marginEnd="-140dp"
+        android:contentDescription="exit"
+        android:src="@drawable/ic_exit"/>
     <ImageView
         android:id="@+id/imgAvatar"
         android:layout_width="188dp"
@@ -51,5 +71,15 @@
         android:text="Mis Salas"
         android:backgroundTint="#FFA559"
         android:layout_marginTop="10dp" />
+
+    <ImageView
+        android:id="@+id/btnEditar"
+        android:layout_width="114dp"
+        android:layout_height="103dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="-140dp"
+        android:contentDescription="config"
+        android:src="@drawable/ic_config" />
+
 
 </LinearLayout>
