@@ -29,25 +29,26 @@
         android:layout_marginBottom="32dp" />
 
     <!-- Nombre de sala -->
+
+    <!-- Contraseña -->
     <EditText
         android:id="@+id/etNombreSala"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_input"
         android:hint="Nombre de la sala"
-        android:background="#5A5A5A"
+        android:inputType="text"
         android:padding="12dp"
         android:textColor="#FFFFFF"
-        android:textColorHint="#D7D7D7"
-        android:layout_marginBottom="16dp"
-        android:inputType="text" />
+        android:textColorHint="#D7D7D7" />
 
-    <!-- Contraseña -->
     <EditText
         android:id="@+id/etPasswordSala"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:hint="Contraseña"
-        android:background="#5A5A5A"
+        android:background="@drawable/bg_input"
         android:padding="12dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#D7D7D7"
