@@ -1,5 +1,7 @@
 package com.example.myapplication.data
-
+import androidx.room.RoomDatabase
+import androidx.room.Database
+import androidx.room.Room
 import android.content.Context
 
 @Database(entities = [User::class], version = 1)
