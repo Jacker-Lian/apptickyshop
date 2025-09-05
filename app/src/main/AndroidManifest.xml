@@ -32,8 +32,7 @@
         <activity android:name=".ListaTareasActivity" android:exported="false" />
         <activity android:name=".ComprasActivity" android:exported="false" />
         <activity android:name=".SalasActivity" android:exported="false" />
-        <!-- Si tienes NotasActivity también -->
-        <!-- <activity android:name=".NotasActivity" android:exported="false" /> -->
+
 
     </application>
 </manifest>

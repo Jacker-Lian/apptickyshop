@@ -30,7 +30,7 @@
 
     <!-- Nombre -->
     <EditText
-        android:id="@+id/etNombreSala"
+        android:id="@+id/etName"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:hint="Nombre de la sala"
@@ -43,7 +43,7 @@
 
     <!-- Contraseña -->
     <EditText
-        android:id="@+id/etPasswordSala"
+        android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:hint="Contraseña"

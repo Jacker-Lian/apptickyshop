@@ -19,7 +19,7 @@
         android:src="@drawable/ic_icono" />
 
     <ImageView
-        android:id="@+id/exit"
+        android:id="@+id/btnCerrarSesion"
         android:layout_width="114dp"
         android:layout_height="103dp"
         android:layout_marginLeft="275dp"

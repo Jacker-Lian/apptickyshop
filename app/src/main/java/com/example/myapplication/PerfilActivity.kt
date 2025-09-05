@@ -31,7 +31,7 @@ class PerfilActivity : AppCompatActivity() {
 
         btnMisSalas.setOnClickListener {
             // Aquí puedes abrir la pantalla de Mis Salas o mostrar mensaje
-            Toast.makeText(this, "Función Mis Salas en construcción", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, SalasActivity::class.java))
         }
 
         btnCerrarSesion.setOnClickListener {

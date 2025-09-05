@@ -1,12 +1,15 @@
 package com.example.myapplication.data
+
 import androidx.room.RoomDatabase
 import androidx.room.Database
 import androidx.room.Room
 import android.content.Context
 
-@Database(entities = [User::class], version = 1)
+// 👇 Incluimos las dos entidades y actualizamos la versión
+@Database(entities = [User::class, Sala::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
+    abstract fun salaDao(): SalaDao  // 👈 nuevo DAO
 
     companion object {
         @Volatile
@@ -18,7 +21,12 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "my_database"
-                ).build()
+                )
+                    // Si cambiaste la versión y aún no tienes migraciones,
+                    // puedes usar fallbackToDestructiveMigration()
+                    // (esto borra y recrea la BD al actualizar versión)
+                    .fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 instance
             }
