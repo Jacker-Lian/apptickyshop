@@ -5,14 +5,15 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ComprasActivity extends AppCompatActivity {
 
-    CheckBox accesorio1, accesorio2, accesorio3;
-    Button btnAgregar;
+    CheckBox  accesorio1, accesorio2, accesorio3;
+    ImageButton btnAgregar;
     ImageView exit;
 
     @Override

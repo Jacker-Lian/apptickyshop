@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="#232625">
 
-
     <!-- Logo -->
     <ImageView
         android:id="@+id/logo"
@@ -53,8 +52,8 @@
             android:textColor="#FFFFFF"
             android:textSize="28sp"
             android:textStyle="bold"
-            android:layout_marginBottom="24dp"/>
-
+            tools:layout_editor_absoluteX="80dp"
+            tools:layout_editor_absoluteY="202dp" />
         <!-- Lista -->
         <LinearLayout
             android:id="@+id/listaHistorial"
@@ -117,13 +116,13 @@
                     android:textColor="#232625"
                     android:textStyle="bold"/>
             </LinearLayout>
-
         </LinearLayout>
-
     </LinearLayout>
+
+    <!-- Bottom Navigation View -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#FFA559"
         app:itemIconTint="@color/black"
@@ -131,7 +130,7 @@
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
