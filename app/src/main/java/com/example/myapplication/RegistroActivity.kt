@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import com.example.myapplication.data.AppDatabase
 import com.example.myapplication.data.User
+
 class RegistroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +23,6 @@ class RegistroActivity : AppCompatActivity() {
         val btnRegister = findViewById<Button>(R.id.btnRegister)
         val tvGoLogin = findViewById<TextView>(R.id.tvGoLogin)
 
-        // Botón registrarse (guardar en Room)
         btnRegister.setOnClickListener {
             val nombre = etNombre.text.toString().trim()
             val email = etEmail.text.toString().trim()
@@ -35,18 +35,16 @@ class RegistroActivity : AppCompatActivity() {
                 val userDao = db.userDao()
 
                 lifecycleScope.launch {
-                    // Guardamos en la BD
                     userDao.insert(User(nombre = nombre, email = email, password = password))
                     Toast.makeText(this@RegistroActivity, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show()
-
-                    // Volver al login
-                    startActivity(Intent(this@RegistroActivity, LoginActivity::class.java))
+                    val intent = Intent(this@RegistroActivity, PerfilActivity::class.java)
+                    intent.putExtra("nombre_usuario", nombre)
+                    startActivity(intent)
                     finish()
                 }
             }
         }
 
-        // Ir a login
         tvGoLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
