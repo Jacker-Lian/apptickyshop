@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.data.AppDatabase
+import com.example.myapplication.data.SalaUsuario
 import kotlinx.coroutines.launch
 
 class UnirseSalaActivity : AppCompatActivity() {
@@ -20,6 +21,7 @@ class UnirseSalaActivity : AppCompatActivity() {
         val btnUnirse = findViewById<Button>(R.id.btnUnirse)
 
         val db = AppDatabase.getDatabase(this)
+        val emailUsuario = getSharedPreferences("user", MODE_PRIVATE).getString("email", "") ?: ""
 
         btnUnirse.setOnClickListener {
             val nombre = etName.text.toString().trim()
@@ -32,6 +34,14 @@ class UnirseSalaActivity : AppCompatActivity() {
                     val sala = db.salaDao().getSala(nombre, password)
                     runOnUiThread {
                         if (sala != null) {
+                            lifecycleScope.launch {
+                                db.salaDao().insertSalaUsuario(
+                                    SalaUsuario(
+                                        salaId = sala.id,
+                                        usuarioEmail = emailUsuario
+                                    )
+                                )
+                            }
                             Toast.makeText(this@UnirseSalaActivity, "Unido a la sala", Toast.LENGTH_SHORT).show()
                             startActivity(Intent(this@UnirseSalaActivity, HistorialActivity::class.java))
                         } else {

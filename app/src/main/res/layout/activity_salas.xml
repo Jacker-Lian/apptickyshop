@@ -33,37 +33,17 @@
         android:layout_height="wrap_content"
         android:text="Lista de Salas"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp" />
 
-    <!-- Botones de salas -->
-    <Button
-        android:id="@+id/sala1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sala "
-        android:backgroundTint="#666666"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="10dp" />
 
-    <Button
-        android:id="@+id/sala2"
+    <!-- Contenedor dinámico de botones -->
+    <LinearLayout
+        android:id="@+id/layoutSalas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sala "
-        android:backgroundTint="#666666"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="10dp" />
-
-    <Button
-        android:id="@+id/sala3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sala "
-        android:backgroundTint="#666666"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="10dp" />
+        android:orientation="vertical" />
 
 </LinearLayout>
