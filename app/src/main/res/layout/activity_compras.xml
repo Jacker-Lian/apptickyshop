@@ -25,9 +25,6 @@
         android:layout_marginLeft="330dp"
         android:layout_marginTop="-90dp"
         android:src="@drawable/ic_exit" />
-    <!-- Bottom Navigation -->
-
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -52,19 +49,51 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
-            <!-- Persona 1 -->
-            <TextView
+            <!-- Campo para añadir nuevo ítem -->
+            <EditText
+                android:id="@+id/etNuevoItem"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Añadir nuevo ítem..."
+                android:background="@drawable/bg_input"
+                android:padding="12dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#D7D7D7"
+                android:layout_marginBottom="16dp"
+                android:inputType="textCapSentences" />
+
+            <!-- Botón para agregar nuevo ítem -->
+            <Button
+                android:id="@+id/btnAgregarAccesorio"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/bg_radius"
+                android:contentDescription="Agregar"
+                android:padding="1dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_agregar"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- RecyclerView para la lista de ítems de compra -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewItems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" /> <!-- Importante para ScrollView -->
+
+            <!-- Los CheckBox de ejemplo y TextViews de Persona 2 y 3 se pueden eliminar o mantener como marcadores de posición si no son dinámicos -->
+            <!-- Si quieres que "Persona 1 - Nombre", "Persona 2 - Nombre" sean dinámicos, necesitarías otra estructura de datos y RecyclerViews anidados o lógicas más complejas. -->
+            <!-- Por ahora, los mantengo comentados o eliminados para simplificar la lista dinámica de ítems. -->
+
+            <!-- <TextView
                 android:id="@+id/txtPersona1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFA559"
                 android:padding="5dp"
                 android:text="Persona 1 - Nombre"
-
                 android:textColor="#FFFFFF"
                 android:textStyle="bold" />
-
-
 
             <CheckBox
                 android:id="@+id/accesorio1"
@@ -87,18 +116,6 @@
                 android:text="Accesorio 3"
                 android:textColor="#FFFFFF" />
 
-            <!-- Persona 2 -->
-            <ImageButton
-                android:id="@+id/btnAgregarAccesorio"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@drawable/bg_radius"
-                android:contentDescription="Agregar"
-                android:padding="1dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_agregar" />
-
-
             <TextView
                 android:id="@+id/txtPersona2"
                 android:layout_width="match_parent"
@@ -110,7 +127,6 @@
                 android:textColor="#FFFFFF"
                 android:textStyle="bold" />
 
-            <!-- Persona 3 -->
             <TextView
                 android:id="@+id/txtPersona3"
                 android:layout_width="match_parent"
@@ -120,11 +136,12 @@
                 android:padding="5dp"
                 android:text="Persona 3 - Nombre"
                 android:textColor="#FFFFFF"
-                android:textStyle="bold" />
+                android:textStyle="bold" /> -->
 
         </LinearLayout>
     </ScrollView>
 
+    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"

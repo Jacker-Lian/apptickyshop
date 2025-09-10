@@ -30,7 +30,6 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <!-- Contenedor de contenido -->
-
     <LinearLayout
         android:id="@+id/containerTareas"
         android:layout_width="0dp"
@@ -57,74 +56,37 @@
             android:textSize="28sp"
             android:textStyle="bold" />
 
-        <!-- Lista de tareas -->
-        <LinearLayout
-            android:id="@+id/listaTareas"
+        <!-- Campo para añadir nueva tarea -->
+        <EditText
+            android:id="@+id/etNuevaTarea"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Añadir nueva tarea..."
+            android:background="@drawable/bg_input"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#D7D7D7"
+            android:layout_marginBottom="16dp"
+            android:inputType="textCapSentences" />
+
+        <!-- Botón para agregar nueva tarea -->
+        <Button
+            android:id="@+id/btnAgregarTarea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="Agregar Tarea"
+            android:backgroundTint="#FFB46A"
+            android:textColor="#232625"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
 
-            <!-- Tarea 1 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="#FFB46A"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="12dp">
+        <!-- RecyclerView para la lista de tareas -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewTareas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" /> <!-- Importante para ScrollView -->
 
-                <TextView
-                    android:id="@+id/tvTarea1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Tarea 1"
-                    android:textColor="#232625"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvEstado1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="☑"
-                    android:textColor="#232625"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!-- Tarea 2 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="#FFB46A"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="12dp">
-
-                <TextView
-                    android:id="@+id/tvTarea2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Tarea 2"
-                    android:textColor="#232625"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvEstado2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="☑"
-                    android:textColor="#232625"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-        </LinearLayout>
 
     </LinearLayout>
 
@@ -138,6 +100,5 @@
         app:menu="@menu/bottom_nav_menu"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="646dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

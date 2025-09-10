@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="#232625">
 
-
     <!-- Logo -->
     <ImageView
         android:id="@+id/logo"
@@ -34,94 +33,48 @@
     <LinearLayout
         android:id="@+id/containerHistorial"
         android:layout_width="0dp"
+        android:layout_height="0dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    app:layout_constraintTop_toBottomOf="@id/logo"
+    app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginStart="32dp"
+    android:layout_marginEnd="32dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp">
+        android:text="Historial de Salas"
+    android:textColor="#FFFFFF"
+    android:textSize="28sp"
+    android:textStyle="bold"
+    android:layout_marginBottom="24dp"/>
 
-        <!-- Título -->
-        <TextView
-            android:id="@+id/tvTitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Historial de Compras"
-            android:textColor="#FFFFFF"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="24dp"/>
+    <!-- RecyclerView para la lista de historial -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewHistorial"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" /> <!-- Ocupa el resto del espacio -->
 
-        <!-- Lista -->
-        <LinearLayout
-            android:id="@+id/listaHistorial"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+</LinearLayout>
 
-            <!-- Item -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="#FFB46A"
-                android:padding="12dp"
-                android:layout_marginBottom="12dp"
-                android:gravity="center_vertical">
+    <!-- Bottom Navigation -->
+<com.google.android.material.bottomnavigation.BottomNavigationView
+android:id="@+id/bottom_navigation"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="#FFA559"
+app:itemIconTint="@color/black"
+app:itemTextColor="@color/black"
+app:menu="@menu/bottom_nav_menu"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"/>
 
-                <TextView
-                    android:id="@+id/tvCompra1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Accesorio 1"
-                    android:textColor="#232625"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/tvPrecio1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="S/ 10.00"
-                    android:textColor="#232625"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-
-            <!-- Item 2 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="#FFB46A"
-                android:padding="12dp"
-                android:layout_marginBottom="12dp"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:id="@+id/tvCompra2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Accesorio 2"
-                    android:textColor="#232625"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/tvPrecio2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="S/ 15.00"
-                    android:textColor="#232625"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

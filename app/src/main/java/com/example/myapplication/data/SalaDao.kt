@@ -3,6 +3,7 @@ package com.example.myapplication.data
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface SalaDao {
@@ -13,5 +14,5 @@ interface SalaDao {
     suspend fun getSala(nombre: String, password: String): Sala?
 
     @Query("SELECT * FROM salas")
-    suspend fun getAllSalas(): List<Sala>
+    fun getAllSalas(): Flow<List<Sala>>
 }
