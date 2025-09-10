@@ -21,7 +21,6 @@ class LoginActivity : AppCompatActivity() {
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val tvGoRegister = findViewById<TextView>(R.id.tvGoRegister)
 
-        // Botón ingresar (ahora validando con Room)
         btnLogin.setOnClickListener {
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
@@ -32,13 +31,14 @@ class LoginActivity : AppCompatActivity() {
                 val db = AppDatabase.getDatabase(this)
                 val userDao = db.userDao()
 
-                // Como Room usa corrutinas → lanzamos en un hilo aparte
                 lifecycleScope.launch {
                     val user = userDao.login(email, password)
                     if (user != null) {
                         Toast.makeText(this@LoginActivity, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this@LoginActivity, PerfilActivity::class.java))
-                        finish() // Opcional: cerrar pantalla de login
+                        val intent = Intent(this@LoginActivity, PerfilActivity::class.java)
+                        intent.putExtra("nombre_usuario", user.nombre)
+                        startActivity(intent)
+                        finish()
                     } else {
                         Toast.makeText(this@LoginActivity, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
                     }
@@ -46,7 +46,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        // Ir a registro
         tvGoRegister.setOnClickListener {
             startActivity(Intent(this, RegistroActivity::class.java))
         }
