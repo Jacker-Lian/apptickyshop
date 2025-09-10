@@ -5,12 +5,12 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-import android.content.Intent;
 
 import com.example.myapplication.data.AppDatabase;
 import com.example.myapplication.data.ItemCompra;
@@ -43,7 +43,7 @@ public class ComprasActivity extends AppCompatActivity {
         etNuevoItem = findViewById(R.id.etNuevoItem);
         recyclerViewItems = findViewById(R.id.recyclerViewItems);
 
-        AppDatabase db = AppDatabase.Companion.getDatabase(this); // o AppDatabase.getDatabase(this) si usas @JvmStatic
+        AppDatabase db = AppDatabase.Companion.getDatabase(this);
         itemCompraDao = db.itemCompraDao();
         executorService = Executors.newSingleThreadExecutor();
 
@@ -70,8 +70,10 @@ public class ComprasActivity extends AppCompatActivity {
             }
         });
 
+        // 🔹 Exit ahora regresa a PerfilActivity
         exit.setOnClickListener(v -> {
-            Toast.makeText(this, "Salir de Compras", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, PerfilActivity.class);
+            startActivity(intent);
             finish();
         });
 
@@ -91,8 +93,10 @@ public class ComprasActivity extends AppCompatActivity {
             }
         });
 
-        // Configuración de navegación inferior (igual que antes)
+        // Configuración de navegación inferior
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.nav_compras); // 🔥 Pinta "Compras"
+
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
 
@@ -100,7 +104,7 @@ public class ComprasActivity extends AppCompatActivity {
                 startActivity(new Intent(this, HistorialActivity.class));
                 return true;
             } else if (id == R.id.nav_compras) {
-                Toast.makeText(this, "Ya estás en Compras", Toast.LENGTH_SHORT).show();
+                // Ya estamos aquí → no hace nada
                 return true;
             } else if (id == R.id.nav_lista) {
                 startActivity(new Intent(this, ListaTareasActivity.class));

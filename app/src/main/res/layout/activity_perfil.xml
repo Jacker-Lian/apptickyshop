@@ -32,7 +32,7 @@
         android:id="@+id/imgAvatar"
         android:layout_width="188dp"
         android:layout_height="196dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         android:contentDescription="Avatar"
         android:src="@drawable/ic_person" />
 
@@ -72,14 +72,6 @@
         android:backgroundTint="#FFA559"
         android:layout_marginTop="10dp" />
 
-    <ImageView
-        android:id="@+id/btnEditar"
-        android:layout_width="56dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="-140dp"
-        android:contentDescription="config"
-        android:src="@drawable/ic_config" />
 
 
 </LinearLayout>

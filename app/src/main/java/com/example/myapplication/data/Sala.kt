@@ -8,5 +8,5 @@ data class Sala(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val nombre: String,
     val password: String,
-    val creadorEmail: String // ← Nuevo campo
+    val creadorEmail: String // 👈 necesario para saber quién creó la sala
 )
